@@ -1,1 +1,3 @@
-# QuotesApp
+# QuotesApp:
+<br>
+A NotesApp build on Quote API, Has a feature to Tweet a particular quote to Twitter...
