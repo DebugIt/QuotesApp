@@ -36,7 +36,7 @@
         const tweetNow = () => {
             // To tweet we require web intent url 
             // Web intent url : https://twitter.com/intent/tweet
-            let tweetPost = `https://twitter.com/intent/tweet?text=${quoteData.text}%20%20-${quoteData.author}`;
+            let tweetPost = `https://twitter.com/intent/tweet?text=${quoteData.text}%20%20%20~%20${quoteData.author}`;
             window.open(tweetPost);
 
             // ading query params
