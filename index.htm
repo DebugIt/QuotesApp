@@ -7,12 +7,12 @@
     <title>Quotes Website</title>
 </head>
 <body>
-    <div class="" id="quotes">
-
-    </div>
+    <div class="" id="quotes"></div>
     <div id="author"></div>
     <button id="newQuote">New Quote!</button>
 
+    <!-- the twitter button -->
+    <button id="tweet">twitter icon</button>
 
 
     <script>
@@ -24,19 +24,37 @@
         const newquote = document.getElementById("newQuote");
         newquote.addEventListener("click", () => getQuote())
         
+
+        // the twitter
+        const tweet = document.getElementById("tweet");
+        tweet.addEventListener("click", () => tweetNow())
+
         // API = https://type.fit/api/quotes
         let realData = "";
+        let quoteData = "";
 
+        const tweetNow = () => {
+            // To tweet we require web intent url 
+            // Web intent url : https://twitter.com/intent/tweet
+            let tweetPost = `https://twitter.com/intent/tweet?text=${quoteData.text}%20%20-${quoteData.author}`;
+            window.open(tweetPost);
+
+            // ading query params
+
+        }
 
 
         // fetching random quote from the list to display on page
         const newQuote = () => {
             // To get  numbers wthout decimal int thhe range of 1 to 10
             let randomNum = Math.floor(Math.random() * 10);
-            console.log(realData[randomNum].text)
-            console.log(realData[randomNum].author)
-            quotes.innerText = `${realData[randomNum].text}`
-            author.innerText = `${realData[randomNum].author}`
+            // console.log(realData[randomNum].text)
+            // console.log(realData[randomNum].author)
+
+            quoteData = realData[randomNum];
+
+            quotes.innerText = `${quoteData.text}`
+            author.innerText = `By ${quoteData.author}`
         }
 
         const getQuote = async() => {
@@ -52,6 +70,8 @@
             }
 
         }
+
+        
 
 
 
